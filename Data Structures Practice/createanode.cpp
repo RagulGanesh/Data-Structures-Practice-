@@ -1,3 +1,4 @@
+//Create a node from GitHub
 #include<iostream>
 using namespace std;
 class Node{
