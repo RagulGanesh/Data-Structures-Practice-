@@ -47,7 +47,7 @@ public:
         {
             append(newData);
         }
-        else if (pos > count() + 1)
+        else if (pos > count() + 1 || pos<0 )
         {
             cout << "List index out of range.\n";
         }
@@ -128,7 +128,7 @@ public:
         {
             deleteLast();
         }
-        else if (pos > count())
+        else if (pos > count() || pos<=0)
         {
             cout << "Can't be deleted.";
         }
@@ -141,8 +141,17 @@ public:
                 i++;
             }
             temp->next = p->next;
-            free(p);
         }
+    }
+    void deleteAllNode(){
+        Node *p,*temp;
+        p=head;
+        while(p!=NULL){
+            temp=p;
+            p=p->next;
+            free(temp);
+        }
+        head=NULL;
     }
     void printList()
     {
@@ -161,10 +170,22 @@ private:
 int main()
 {
     Sll obj;
-    int n;
+    int n,choice=1;
+    while(true){
+        int data;
+        cout<<"Enter data : ";
+        cin>>data;
+        obj.append(data);
+        cout<<"Enter choice : ";
+        cin>>choice;
+        if (choice==0){
+            break;
+        }
+    }
+    cout << "Enter 1 to append,2 to push,3 to insert,4 to print,5 to delete,6 to count,7 to exit : \n";
     while (true)
     {
-        cout << "Enter 1 to append,2 to push,3 to insert,4 to print,5 to exit : \n";
+        
         cin >> n;
         if (n == 1)
         {
@@ -172,6 +193,7 @@ int main()
             cout << "Enter the number to be appended : ";
             cin >> data;
             obj.append(data);
+            cout<<"Enter choice : ";
         }
         else if (n == 2)
         {
@@ -179,6 +201,7 @@ int main()
             cout << "Enter the number to be pushed : ";
             cin >> data1;
             obj.push(data1);
+            cout<<"Enter choice : ";
         }
         else if (n == 3)
         {
@@ -188,15 +211,37 @@ int main()
             cout << "Enter the index number : ";
             cin >> index;
             obj.insert(index, data2);
+            cout<<"Enter choice : ";
         }
         else if (n == 4)
         {
             obj.printList();
+            cout<<"\n";
+            cout<<"Enter choice : ";
         }
-        else
+        else if(n==5){
+            int pos;
+            cout<<"Enter the position to be deleted : ";
+            cin>>pos;
+            obj.deleteNode(pos);
+            cout<<"Enter choice : ";
+        }
+        else if(n==6){
+            cout<<"Total nodes are : "<<obj.count()<<"\n";
+            cout<<"Enter choice : ";
+        }
+        else if(n==7)
         {
             break;
         }
     }
+    
+
+    // cout<<"No. of nodes : "<<obj.count()<<"\n";
+    // obj.deleteAllNode();
+    // cout<<"No. of nodes : "<<obj.count()<<"\n";
+    // obj.printList();
     return 0;
 }
+
+
