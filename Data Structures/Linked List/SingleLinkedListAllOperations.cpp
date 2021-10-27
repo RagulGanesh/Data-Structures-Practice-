@@ -170,6 +170,7 @@ private:
 int main()
 {
     Sll obj;
+    obj=Sll();
     int n,choice=1;
     while(true){
         int data;
