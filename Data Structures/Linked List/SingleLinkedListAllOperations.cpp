@@ -58,6 +58,7 @@ public:
             while (i < pos - 1)
             {
                 p = p->next;
+                i++;
             }
             newNodeInsert->next = p->next;
             p->next = newNodeInsert;
@@ -216,18 +217,17 @@ int main()
         else if (n == 4)
         {
             obj.printList();
-            cout<<"\n";
             cout<<"Enter choice : ";
         }
         else if(n==5){
             int pos;
-            cout<<"Enter the position to be deleted : ";
+            cout<<"Enter the position to be deleted.";
             cin>>pos;
             obj.deleteNode(pos);
             cout<<"Enter choice : ";
         }
         else if(n==6){
-            cout<<"Total nodes are : "<<obj.count()<<"\n";
+            cout<<"Total nodes are : "<<obj.count();
             cout<<"Enter choice : ";
         }
         else if(n==7)
@@ -237,10 +237,10 @@ int main()
     }
     
 
-    // cout<<"No. of nodes : "<<obj.count()<<"\n";
-    // obj.deleteAllNode();
-    // cout<<"No. of nodes : "<<obj.count()<<"\n";
-    // obj.printList();
+    cout<<"No. of nodes : "<<obj.count()<<"\n";
+    obj.deleteAllNode();
+    cout<<"No. of nodes : "<<obj.count()<<"\n";
+    obj.printList();
     return 0;
 }
 
