@@ -183,7 +183,7 @@ int main()
             break;
         }
     }
-    cout << "Enter 1 to append,2 to push,3 to insert,4 to print,5 to delete,6 to count,7 to exit : \n";
+    cout << "Enter 1 to append,2 to push,3 to insert,4 to print,5 to delete,6 to count,7 to search,8 to exit : \n";
     while (true)
     {
         
@@ -230,7 +230,14 @@ int main()
             cout<<"Total nodes are : "<<obj.count();
             cout<<"Enter choice : ";
         }
-        else if(n==7)
+        else if(n==7){
+            int data4;
+            cout<<"Enter the element to be searched : ";
+            cin>>data4;
+            obj.search(data4);
+            cout<<"Enter choice : ";
+        }
+        else if(n==8)
         {
             break;
         }
