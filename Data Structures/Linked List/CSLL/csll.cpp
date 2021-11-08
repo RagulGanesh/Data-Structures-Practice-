@@ -121,10 +121,12 @@ class Csll{
     int count(){
         int count=0;
         Node *p=head;
+        if(head!=NULL){
         do{
             count++;
             p=p->next;
         }while(p!=head);
+        }
         return count;
     }
     void printList(){
@@ -134,6 +136,16 @@ class Csll{
             p=p->next;
         }while(p!=head);
     }
+    void deleteAllNode(){
+        Node *p=head,*temp;
+        do{
+            temp=p;
+            p=p->next;
+            free(temp);
+        }while(p!=head);
+        head=NULL;
+        
+    }
     private:
     Node *head=NULL;
     Node *tail=NULL;
@@ -141,7 +153,64 @@ class Csll{
 
 int main(){
     Csll a;
-    cout<<"Append Concept.\n";
+    int choice=1,data,opt,pos;
+    while(true){
+        cout<<"Enter elements in the CSLL : ";
+        cin>>data;
+        a.append(data);
+        cout<<"Enter choice : ";
+        cin>>choice;
+        if(choice==0){
+            break;
+        }
+    }
+    cout<<"Enter 1 to append, 2 to push, 3 to insert, 4 to delete, 5 to print, 6 to count, 7 to search, 8 to exit : "<<endl;
+    while(true){
+        cout<<"Enter choice : ";
+        cin>>opt;
+        if(opt==1){
+            cout<<"Enter the data to be appended : ";
+            cin>>data;
+            a.append(data);
+        }
+        else if(opt==2){
+            cout<<"Enter the data to be pushed : ";
+            cin>>data;
+            a.push(data);
+        }
+        else if(opt==3){
+            cout<<"Enter the position to be inserted : ";
+            cin>>pos;
+            cout<<"Enter the data to be inserted : ";
+            cin>>data;
+            a.insert(pos,data);
+        }
+        else if(opt==4){
+            cout<<"Enter the position to be deleted : ";
+            cin>>pos;
+            a.deleteNode(pos);
+        }
+        else if(opt==5){
+            a.printList();
+            cout<<endl;
+        }
+        else if(opt==6){
+            cout<<"There are a total of "<<a.count()<<" nodes in the list.\n";
+        }
+        else if(opt==7){
+            cout<<"Enter the data to be searched : ";
+            cin>>data;
+            a.search(data);
+        }
+        else{
+            a.deleteAllNode();
+            break;
+        }
+    }
+    
+    return 0;
+    
+    /*cout<<"Append Concept.\n";
     a.append(8);
     a.append(9);
     a.append(10);
@@ -179,5 +248,7 @@ int main(){
     a.printList();
     cout<<endl;
     cout<<"Search Concept.\n";
-    a.search(9);
+    a.search(9);*/
 }
+
+
