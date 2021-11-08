@@ -6,7 +6,7 @@ class Node{
     int data;
     Node *next;
 };
-class Sdll{
+class Cdll{
     public:
     void append(int newData){
         Node *newNodeAppend=new Node();
@@ -157,7 +157,7 @@ class Sdll{
     Node *head=NULL;
 };
 int main(){
-    Sdll a;
+    Cdll a;
     cout<<"Append Concept.\n";
     a.append(3);
     a.append(5);

@@ -46,7 +46,7 @@ class Csll{
             append(newData);
         }
         else if(pos<=0||pos>count()+1){
-            cout<<"Lis Index out of Range.\n";
+            cout<<"List Index out of Range.\n";
         }
         else{
             Node *newNodeInsert=new Node();
