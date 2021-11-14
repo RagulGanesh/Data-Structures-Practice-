@@ -20,13 +20,25 @@ class Stack{
         }
     }
     void peak(){
-        cout<<"Peak Value : "<<p[top]<<"\n";
+        if(top==-1){
+            cout<<"Underflow Error!\n";
+        }
+        else{
+            cout<<"Peak Value : "<<p[top]<<"\n";
+        }
     }
     void display(){
-        for(int i=top;i>=0;i--){
-            cout<<p[i]<<" ";
+        if(top==-1){
+            cout<<"Underflow Error!\n";
         }
-        cout<<"\n";
+        else{
+                for(int i=top;i>=0;i--){
+                cout<<p[i]<<" ";
+            }
+            cout<<"\n";
+
+        }        
+
     }
     void input(){
         int sizeOfStack;
