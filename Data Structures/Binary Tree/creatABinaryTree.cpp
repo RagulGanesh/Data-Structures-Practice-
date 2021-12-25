@@ -50,7 +50,7 @@ class Node{
 };
 class BT{
     public:
-    Node* createTree(int data){
+    Node* createTree(int data){ 
         Node *root=new Node(data);
         if(data==0){
             return NULL;
@@ -100,7 +100,10 @@ class BT{
 };
 int main(){
     BT a;
-    a.createTree(1);
+    int n;
+    cout<<"Enter the value of root node : ";
+    cin>>n;
+    a.createTree(n);
     cout<<"Inorder : ";
     a.inOrder(a.parent);
     cout<<"\n";
