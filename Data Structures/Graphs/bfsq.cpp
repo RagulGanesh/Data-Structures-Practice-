@@ -1,5 +1,5 @@
 #include<iostream>
-#include<queue>
+#include "queue.h"
 using namespace std;
 class BFS{
     public:
@@ -41,18 +41,16 @@ class BFS{
     }
 
     void breadthFirstSearch(int a){
-        queue<int> q;
+        Queue<int> q;
         visited[a]=1;
-        q.push(a);
-        while(!q.empty()){
-            a=q.front();
-            q.pop();
+        q.enqueue(a);
+        while(!q.isEmpty()){
+            a=q.dequeue();
             cout<<a<<" ";
             for(int i=0;i<size;i++){
                 if(adjMat[a][i]==1&&visited[i]==0){
                     visited[i]=1;
-
-                    q.push(i);
+                    q.enqueue(i);
                 }
             }
         }
